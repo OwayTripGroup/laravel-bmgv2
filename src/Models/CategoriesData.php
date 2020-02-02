@@ -19,7 +19,6 @@ class CategoriesData implements JsonSerializable
      * name of category
      *
      * @required
-     * @maps     Name
      * @var      string $name public property
      */
     public $name;
