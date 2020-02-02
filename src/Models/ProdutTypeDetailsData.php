@@ -80,9 +80,30 @@ class ProdutTypeDetailsData implements JsonSerializable
     /**
      * @todo Write general description for this property
      * @required
+     * @var string $cutOffTime public property
+     */
+    public $cutOffTime;
+
+    /**
+     * @todo Write general description for this property
+     * @required
+     * @var string $firstAvailabilityDate public property
+     */
+    public $firstAvailabilityDate;
+
+    /**
+     * @todo Write general description for this property
+     * @required
      * @var bool $isNonRefundable public property
      */
     public $isNonRefundable;
+
+    /**
+     * @todo Write general description for this property
+     * @required
+     * @var bool $allowAdults public property
+     */
+    public $allowAdults;
 
     /**
      * @todo Write general description for this property
@@ -325,6 +346,20 @@ class ProdutTypeDetailsData implements JsonSerializable
     /**
      * @todo Write general description for this property
      * @required
+     * @var double $childRecommendedMarkup public property
+     */
+    public $childRecommendedMarkup;
+
+    /**
+     * @todo Write general description for this property
+     * @required
+     * @var double $seniorRecommendedMarkup public property
+     */
+    public $seniorRecommendedMarkup;
+
+    /**
+     * @todo Write general description for this property
+     * @required
      * @var string $adultParityPrice public property
      */
     public $adultParityPrice;
@@ -342,6 +377,27 @@ class ProdutTypeDetailsData implements JsonSerializable
      * @var string $seniorParityPrice public property
      */
     public $seniorParityPrice;
+
+    /**
+     * @todo Write general description for this property
+     * @required
+     * @var string $adultGateRatePrice public property
+     */
+    public $adultGateRatePrice;
+
+    /**
+     * @todo Write general description for this property
+     * @required
+     * @var string $childGateRatePrice public property
+     */
+    public $childGateRatePrice;
+
+    /**
+     * @todo Write general description for this property
+     * @required
+     * @var string $seniorGateRatePrice public property
+     */
+    public $seniorGateRatePrice;
 
     /**
      * @todo Write general description for this property
@@ -367,6 +423,34 @@ class ProdutTypeDetailsData implements JsonSerializable
     /**
      * @todo Write general description for this property
      * @required
+     * @var bool $hasOptions public property
+     */
+    public $hasOptions;
+
+    /**
+     * @todo Write general description for this property
+     * @required
+     * @var bool $hasFileUploadOptions public property
+     */
+    public $hasFileUploadOptions;
+
+    /**
+     * @todo Write general description for this property
+     * @required
+     * @var bool $hasPriceOptions public property
+     */
+    public $hasPriceOptions;
+
+    /**
+     * @todo Write general description for this property
+     * @required
+     * @var bool $hasRequiredPriceOptions public property
+     */
+    public $hasRequiredPriceOptions;
+
+    /**
+     * @todo Write general description for this property
+     * @required
      * @var \BmgApiV2Lib\Models\HATOASLinks[] $links public property
      */
     public $links;
@@ -383,7 +467,11 @@ class ProdutTypeDetailsData implements JsonSerializable
      * @param integer         $durationHours                      Initialization value for $this->durationHours
      * @param integer         $durationMinutes                    Initialization value for $this->durationMinutes
      * @param string          $daysInAdvance                      Initialization value for $this->daysInAdvance
+     * @param string          $cutOffTime                         Initialization value for $this->cutOffTime
+     * @param string          $firstAvailabilityDate              Initialization value for $this-
+     *                                                              >firstAvailabilityDate
      * @param bool            $isNonRefundable                    Initialization value for $this->isNonRefundable
+     * @param bool            $allowAdults                        Initialization value for $this->allowAdults
      * @param integer         $minPax                             Initialization value for $this->minPax
      * @param integer         $maxPax                             Initialization value for $this->maxPax
      * @param integer         $minAdultAge                        Initialization value for $this->minAdultAge
@@ -424,17 +512,30 @@ class ProdutTypeDetailsData implements JsonSerializable
      * @param array           $cancellationPolicies               Initialization value for $this-
      *                                                              >cancellationPolicies
      * @param double          $recommendedMarkup                  Initialization value for $this->recommendedMarkup
+     * @param double          $childRecommendedMarkup             Initialization value for $this-
+     *                                                              >childRecommendedMarkup
+     * @param double          $seniorRecommendedMarkup            Initialization value for $this-
+     *                                                              >seniorRecommendedMarkup
      * @param string          $adultParityPrice                   Initialization value for $this->adultParityPrice
      * @param string          $childParityPrice                   Initialization value for $this->childParityPrice
      * @param string          $seniorParityPrice                  Initialization value for $this->seniorParityPrice
+     * @param string          $adultGateRatePrice                 Initialization value for $this->adultGateRatePrice
+     * @param string          $childGateRatePrice                 Initialization value for $this->childGateRatePrice
+     * @param string          $seniorGateRatePrice                Initialization value for $this->seniorGateRatePrice
      * @param ValidityProduct $validity                           Initialization value for $this->validity
      * @param array           $timeslots                          Initialization value for $this->timeslots
      * @param array           $options                            Initialization value for $this->options
+     * @param bool            $hasOptions                         Initialization value for $this->hasOptions
+     * @param bool            $hasFileUploadOptions               Initialization value for $this-
+     *                                                              >hasFileUploadOptions
+     * @param bool            $hasPriceOptions                    Initialization value for $this->hasPriceOptions
+     * @param bool            $hasRequiredPriceOptions            Initialization value for $this-
+     *                                                              >hasRequiredPriceOptions
      * @param array           $links                              Initialization value for $this->links
      */
     public function __construct()
     {
-        if (51 == func_num_args()) {
+        if (63 == func_num_args()) {
             $this->uuid                               = func_get_arg(0);
             $this->title                              = func_get_arg(1);
             $this->titleTranslated                    = func_get_arg(2);
@@ -444,48 +545,60 @@ class ProdutTypeDetailsData implements JsonSerializable
             $this->durationHours                      = func_get_arg(6);
             $this->durationMinutes                    = func_get_arg(7);
             $this->daysInAdvance                      = func_get_arg(8);
-            $this->isNonRefundable                    = func_get_arg(9);
-            $this->minPax                             = func_get_arg(10);
-            $this->maxPax                             = func_get_arg(11);
-            $this->minAdultAge                        = func_get_arg(12);
-            $this->maxAdultAge                        = func_get_arg(13);
-            $this->hasChildPrice                      = func_get_arg(14);
-            $this->allowChildren                      = func_get_arg(15);
-            $this->minChildren                        = func_get_arg(16);
-            $this->maxChildren                        = func_get_arg(17);
-            $this->minChildAge                        = func_get_arg(18);
-            $this->maxChildAge                        = func_get_arg(19);
-            $this->allowSeniors                       = func_get_arg(20);
-            $this->minSeniors                         = func_get_arg(21);
-            $this->maxSeniors                         = func_get_arg(22);
-            $this->minSeniorAge                       = func_get_arg(23);
-            $this->maxSeniorAge                       = func_get_arg(24);
-            $this->allowInfant                        = func_get_arg(25);
-            $this->minInfantAge                       = func_get_arg(26);
-            $this->maxInfantAge                       = func_get_arg(27);
-            $this->maxGroup                           = func_get_arg(28);
-            $this->minGroup                           = func_get_arg(29);
-            $this->instantConfirmation                = func_get_arg(30);
-            $this->nonInstantVoucher                  = func_get_arg(31);
-            $this->directAdmission                    = func_get_arg(32);
-            $this->voucherUse                         = func_get_arg(33);
-            $this->voucherUseTranslated               = func_get_arg(34);
-            $this->voucherRedemptionAddress           = func_get_arg(35);
-            $this->voucherRedemptionAddressTranslated = func_get_arg(36);
-            $this->voucherRequiresPrinting            = func_get_arg(37);
-            $this->meetingTime                        = func_get_arg(38);
-            $this->meetingAddress                     = func_get_arg(39);
-            $this->meetingLocation                    = func_get_arg(40);
-            $this->meetingLocationTranslated          = func_get_arg(41);
-            $this->cancellationPolicies               = func_get_arg(42);
-            $this->recommendedMarkup                  = func_get_arg(43);
-            $this->adultParityPrice                   = func_get_arg(44);
-            $this->childParityPrice                   = func_get_arg(45);
-            $this->seniorParityPrice                  = func_get_arg(46);
-            $this->validity                           = func_get_arg(47);
-            $this->timeslots                          = func_get_arg(48);
-            $this->options                            = func_get_arg(49);
-            $this->links                              = func_get_arg(50);
+            $this->cutOffTime                         = func_get_arg(9);
+            $this->firstAvailabilityDate              = func_get_arg(10);
+            $this->isNonRefundable                    = func_get_arg(11);
+            $this->allowAdults                        = func_get_arg(12);
+            $this->minPax                             = func_get_arg(13);
+            $this->maxPax                             = func_get_arg(14);
+            $this->minAdultAge                        = func_get_arg(15);
+            $this->maxAdultAge                        = func_get_arg(16);
+            $this->hasChildPrice                      = func_get_arg(17);
+            $this->allowChildren                      = func_get_arg(18);
+            $this->minChildren                        = func_get_arg(19);
+            $this->maxChildren                        = func_get_arg(20);
+            $this->minChildAge                        = func_get_arg(21);
+            $this->maxChildAge                        = func_get_arg(22);
+            $this->allowSeniors                       = func_get_arg(23);
+            $this->minSeniors                         = func_get_arg(24);
+            $this->maxSeniors                         = func_get_arg(25);
+            $this->minSeniorAge                       = func_get_arg(26);
+            $this->maxSeniorAge                       = func_get_arg(27);
+            $this->allowInfant                        = func_get_arg(28);
+            $this->minInfantAge                       = func_get_arg(29);
+            $this->maxInfantAge                       = func_get_arg(30);
+            $this->maxGroup                           = func_get_arg(31);
+            $this->minGroup                           = func_get_arg(32);
+            $this->instantConfirmation                = func_get_arg(33);
+            $this->nonInstantVoucher                  = func_get_arg(34);
+            $this->directAdmission                    = func_get_arg(35);
+            $this->voucherUse                         = func_get_arg(36);
+            $this->voucherUseTranslated               = func_get_arg(37);
+            $this->voucherRedemptionAddress           = func_get_arg(38);
+            $this->voucherRedemptionAddressTranslated = func_get_arg(39);
+            $this->voucherRequiresPrinting            = func_get_arg(40);
+            $this->meetingTime                        = func_get_arg(41);
+            $this->meetingAddress                     = func_get_arg(42);
+            $this->meetingLocation                    = func_get_arg(43);
+            $this->meetingLocationTranslated          = func_get_arg(44);
+            $this->cancellationPolicies               = func_get_arg(45);
+            $this->recommendedMarkup                  = func_get_arg(46);
+            $this->childRecommendedMarkup             = func_get_arg(47);
+            $this->seniorRecommendedMarkup            = func_get_arg(48);
+            $this->adultParityPrice                   = func_get_arg(49);
+            $this->childParityPrice                   = func_get_arg(50);
+            $this->seniorParityPrice                  = func_get_arg(51);
+            $this->adultGateRatePrice                 = func_get_arg(52);
+            $this->childGateRatePrice                 = func_get_arg(53);
+            $this->seniorGateRatePrice                = func_get_arg(54);
+            $this->validity                           = func_get_arg(55);
+            $this->timeslots                          = func_get_arg(56);
+            $this->options                            = func_get_arg(57);
+            $this->hasOptions                         = func_get_arg(58);
+            $this->hasFileUploadOptions               = func_get_arg(59);
+            $this->hasPriceOptions                    = func_get_arg(60);
+            $this->hasRequiredPriceOptions            = func_get_arg(61);
+            $this->links                              = func_get_arg(62);
         }
     }
 
@@ -505,7 +618,10 @@ class ProdutTypeDetailsData implements JsonSerializable
         $json['durationHours']                      = $this->durationHours;
         $json['durationMinutes']                    = $this->durationMinutes;
         $json['daysInAdvance']                      = $this->daysInAdvance;
+        $json['cutOffTime']                         = $this->cutOffTime;
+        $json['firstAvailabilityDate']              = $this->firstAvailabilityDate;
         $json['isNonRefundable']                    = $this->isNonRefundable;
+        $json['allowAdults']                        = $this->allowAdults;
         $json['minPax']                             = $this->minPax;
         $json['maxPax']                             = $this->maxPax;
         $json['minAdultAge']                        = $this->minAdultAge;
@@ -540,12 +656,21 @@ class ProdutTypeDetailsData implements JsonSerializable
         $json['meetingLocationTranslated']          = $this->meetingLocationTranslated;
         $json['cancellationPolicies']               = $this->cancellationPolicies;
         $json['recommendedMarkup']                  = $this->recommendedMarkup;
+        $json['childRecommendedMarkup']             = $this->childRecommendedMarkup;
+        $json['seniorRecommendedMarkup']            = $this->seniorRecommendedMarkup;
         $json['adultParityPrice']                   = $this->adultParityPrice;
         $json['childParityPrice']                   = $this->childParityPrice;
         $json['seniorParityPrice']                  = $this->seniorParityPrice;
+        $json['adultGateRatePrice']                 = $this->adultGateRatePrice;
+        $json['childGateRatePrice']                 = $this->childGateRatePrice;
+        $json['seniorGateRatePrice']                = $this->seniorGateRatePrice;
         $json['validity']                           = $this->validity;
         $json['timeslots']                          = $this->timeslots;
         $json['options']                            = $this->options;
+        $json['hasOptions']                         = $this->hasOptions;
+        $json['hasFileUploadOptions']               = $this->hasFileUploadOptions;
+        $json['hasPriceOptions']                    = $this->hasPriceOptions;
+        $json['hasRequiredPriceOptions']            = $this->hasRequiredPriceOptions;
         $json['links']                              = $this->links;
 
         return $json;

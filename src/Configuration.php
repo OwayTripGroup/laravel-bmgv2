@@ -15,18 +15,35 @@ class Configuration
 {
     /**
      * The environment being used'
+     *
      * @var string
      */
     public static $environment = Environments::DEMO;
 
     /**
      * Api Key
+     *
      * @var string
      */
     public static $xAuthorization = '';
 
     /**
+     * Root path of the project.
+     *
+     * @var string
+     */
+    public static $basePath = __DIR__ . "/..";
+
+    /**
+     * User agent path of the project.
+     *
+     * @var string
+     */
+    public static $userAgent = "APIMATIC 2.0";
+
+    /**
      * Get the base uri for a given server in the current environment
+     *
      * @param  string $server Server name
      * @return string         Base URI
      */
@@ -41,6 +58,7 @@ class Configuration
 
     /**
      * A map of all baseurls used in different environments and servers
+     *
      * @var array
      */
     private static $environmentsMap = [
@@ -49,9 +67,6 @@ class Configuration
         ],
         Environments::LIVE_PRODUCTION_ => [
             Servers::BMG => 'https://api.bemyguest.com.sg',
-        ],
-        Environments::ANONYMOUS => [
-            Servers::BMG => 'https://private-anon-a39178e256-bmglabsapi.apiary-mock.com',
         ],
     ];
 }

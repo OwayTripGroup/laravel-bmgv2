@@ -17,11 +17,13 @@ use BmgApiV2Lib\Tests\HttpCallBackCatcher;
 class ProductsControllerTest extends TestCase
 {
     /**
+     *
      * @var \BmgApiV2Lib\Controllers\ProductsController Controller instance
      */
     protected static $controller;
 
     /**
+     *
      * @var \BmgApiV2Lib\Tests\HttpCallBackCatcher Callback
      */
     protected $httpResponse;
@@ -64,7 +66,7 @@ class ProductsControllerTest extends TestCase
 
     public function testGetProductListWithParams()
     {
-        $locations = (new BmgApiV2Client)
+        $locations = self::getDemoBeMyGuestClient()
             ->getClient()
             ->getConfig()
             ->data
@@ -84,6 +86,7 @@ class ProductsControllerTest extends TestCase
     }
 
     /**
+     *
      * @depends testGetProductList
      */
     public function testGetProductDetails()
@@ -93,7 +96,7 @@ class ProductsControllerTest extends TestCase
         $result = null;
         self::$controller->setHttpCallBack($this->httpResponse);
 
-         try {
+        try {
             $result = self::$controller->getProductDetails($products->data[0]->uuid);
         } catch (APIException $e) {
         }

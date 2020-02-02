@@ -22,17 +22,20 @@ use BmgApiV2Lib\Http\HttpResponse;
 use BmgApiV2Lib\Utils\DateTimeHelper;
 
 /**
+ *
  * @todo Add a general description for this controller.
  */
 class ProductTypesController extends BaseController
 {
     /**
+     *
      * @var ProductTypesController The reference to *Singleton* instance of this class
      */
     private static $instance;
 
     /**
      * Returns the *Singleton* instance of this class.
+     *
      * @return ProductTypesController The *Singleton* instance.
      */
     public static function getInstance()
@@ -48,8 +51,8 @@ class ProductTypesController extends BaseController
      * Confirm availability and price of product-type using its UUID and date as a parameter. Before
      * creating a booking we advise to run this request first.
      *
-     * @param string   $uuid UUID of product type
-     * @param \DateTime $date Date YYYY-MM-DD
+     * @param  string    $uuid UUID of product type
+     * @param  \DateTime $date Date YYYY-MM-DD
      * @return mixed response from the API call
      * @throws \APIException Thrown if API call fails
      */
@@ -65,17 +68,20 @@ class ProductTypesController extends BaseController
         $_queryBuilder = $_queryBuilder . '/v2/product-types/{uuid}/price-lists/{date}';
 
         //process optional query parameters
-        $_queryBuilder = APIHelper::appendUrlWithTemplateParameters($_queryBuilder, array (
+        $_queryBuilder = APIHelper::appendUrlWithTemplateParameters(
+            $_queryBuilder,
+            array (
             'uuid' => $uuid,
             'date' => DateTimeHelper::toSimpleDate(new DateTime($date)),
-            ));
+            )
+        );
 
         //validate and preprocess url
         $_queryUrl = APIHelper::cleanUrl($_queryBuilder);
 
         //prepare headers
         $_headers = array (
-            'user-agent'    => 'APIMATIC 2.0',
+            'user-agent'    => \BmgApiV2Lib\Configuration::$userAgent,
             'Accept'        => 'application/json',
             'X-Authorization' => Configuration::$xAuthorization
         );
@@ -121,7 +127,7 @@ class ProductTypesController extends BaseController
     /**
      * Get information about product type using its UUID as the parameter.
      *
-     * @param string $uuid UUID of product type
+     * @param  string $uuid UUID of product type
      * @return mixed response from the API call
      * @throws APIException Thrown if API call fails
      */
@@ -136,16 +142,19 @@ class ProductTypesController extends BaseController
         $_queryBuilder = $_queryBuilder . '/v2/product-types/{uuid}';
 
         //process optional query parameters
-        $_queryBuilder = APIHelper::appendUrlWithTemplateParameters($_queryBuilder, array (
+        $_queryBuilder = APIHelper::appendUrlWithTemplateParameters(
+            $_queryBuilder,
+            array (
             'uuid' => $uuid,
-            ));
+            )
+        );
 
         //validate and preprocess url
         $_queryUrl = APIHelper::cleanUrl($_queryBuilder);
 
         //prepare headers
         $_headers = array (
-            'user-agent'    => 'APIMATIC 2.0',
+            'user-agent'    => \BmgApiV2Lib\Configuration::$userAgent,
             'Accept'        => 'application/json',
             'X-Authorization' => Configuration::$xAuthorization
         );
@@ -195,7 +204,7 @@ class ProductTypesController extends BaseController
     /**
      * Get a list of product-types using its UUID as the parameter.
      *
-     * @param string $uuid UUID of product
+     * @param  string $uuid UUID of product
      * @return mixed response from the API call
      * @throws APIException Thrown if API call fails
      */
@@ -210,16 +219,19 @@ class ProductTypesController extends BaseController
         $_queryBuilder = $_queryBuilder . '/v2/products/{uuid}/product-types';
 
         //process optional query parameters
-        $_queryBuilder = APIHelper::appendUrlWithTemplateParameters($_queryBuilder, array (
+        $_queryBuilder = APIHelper::appendUrlWithTemplateParameters(
+            $_queryBuilder,
+            array (
             'uuid' => $uuid,
-            ));
+            )
+        );
 
         //validate and preprocess url
         $_queryUrl = APIHelper::cleanUrl($_queryBuilder);
 
         //prepare headers
         $_headers = array (
-            'user-agent'    => 'APIMATIC 2.0',
+            'user-agent'    => \BmgApiV2Lib\Configuration::$userAgent,
             'Accept'        => 'application/json',
             'X-Authorization' => Configuration::$xAuthorization
         );
@@ -265,10 +277,10 @@ class ProductTypesController extends BaseController
     /**
      * Get product type pricing using its UUID as the parameter.
      *
-     * @param string   $uuid       UUID of product type
-     * @param \DateTime $dateStart  (optional) Start date for pricing list
-     * @param \DateTime $dateEnd    (optional) End date for pricing list
-     * @param string   $language   (optional) UUID of language
+     * @param  string    $uuid      UUID of product type
+     * @param  \DateTime $dateStart (optional) Start date for pricing list
+     * @param  \DateTime $dateEnd   (optional) End date for pricing list
+     * @param  string    $language  (optional) UUID of language
      * @return mixed response from the API call
      * @throws \APIException Thrown if API call fails
      */
@@ -286,9 +298,12 @@ class ProductTypesController extends BaseController
         $_queryBuilder = $_queryBuilder . '/v2/product-types/{uuid}/price-lists';
 
         //process optional query parameters
-        $_queryBuilder = APIHelper::appendUrlWithTemplateParameters($_queryBuilder, array (
+        $_queryBuilder = APIHelper::appendUrlWithTemplateParameters(
+            $_queryBuilder,
+            array (
             'uuid'       => $uuid,
-            ));
+            )
+        );
 
         $parameters = [
             'date_start' => DateTimeHelper::toSimpleDate(new DateTime($dateStart)),
@@ -308,7 +323,7 @@ class ProductTypesController extends BaseController
 
         //prepare headers
         $_headers = array (
-            'user-agent'    => 'APIMATIC 2.0',
+            'user-agent'    => \BmgApiV2Lib\Configuration::$userAgent,
             'Accept'        => 'application/json',
             'X-Authorization' => Configuration::$xAuthorization
         );

@@ -16,14 +16,17 @@ class BmgApiV2Client
 {
     /**
      * Constructor with authentication and configuration parameters
+     *
+     * @param string $xAuthorization
      */
     public function __construct(
-        $xAuthorization = null
+        $xAuthorization
     ) {
-        Configuration::$xAuthorization = $xAuthorization ? $xAuthorization : Configuration::$xAuthorization;
+        Configuration::$xAuthorization = $xAuthorization;
     }
     /**
      * Singleton access to BulkBuys controller
+     *
      * @return Controllers\BulkBuysController The *Singleton* instance
      */
     public function getBulkBuys()
@@ -32,6 +35,7 @@ class BmgApiV2Client
     }
     /**
      * Singleton access to API controller
+     *
      * @return Controllers\APIController The *Singleton* instance
      */
     public function getClient()
@@ -40,6 +44,7 @@ class BmgApiV2Client
     }
     /**
      * Singleton access to Bookings controller
+     *
      * @return Controllers\BookingsController The *Singleton* instance
      */
     public function getBookings()
@@ -48,6 +53,7 @@ class BmgApiV2Client
     }
     /**
      * Singleton access to Products controller
+     *
      * @return Controllers\ProductsController The *Singleton* instance
      */
     public function getProducts()
@@ -56,6 +62,7 @@ class BmgApiV2Client
     }
     /**
      * Singleton access to ProductTypes controller
+     *
      * @return Controllers\ProductTypesController The *Singleton* instance
      */
     public function getProductTypes()

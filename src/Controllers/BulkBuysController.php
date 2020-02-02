@@ -20,17 +20,20 @@ use BmgApiV2Lib\Servers;
 use Unirest\Request;
 
 /**
+ *
  * @todo Add a general description for this controller.
  */
 class BulkBuysController extends BaseController
 {
     /**
+     *
      * @var BulkBuysController The reference to *Singleton* instance of this class
      */
     private static $instance;
 
     /**
      * Returns the *Singleton* instance of this class.
+     *
      * @return BulkBuysController The *Singleton* instance.
      */
     public static function getInstance()
@@ -63,7 +66,7 @@ class BulkBuysController extends BaseController
 
         //prepare headers
         $_headers = array (
-            'user-agent'    => 'APIMATIC 2.0',
+            'user-agent'    => \BmgApiV2Lib\Configuration::$userAgent,
             'Accept'        => 'application/json',
             'X-Authorization' => Configuration::$xAuthorization
         );
@@ -111,7 +114,7 @@ class BulkBuysController extends BaseController
 
         //prepare headers
         $_headers = array (
-            'user-agent'    => 'APIMATIC 2.0',
+            'user-agent'    => \BmgApiV2Lib\Configuration::$userAgent,
             'Accept'        => 'application/json',
             'X-Authorization' => Configuration::$xAuthorization
         );
@@ -144,7 +147,7 @@ class BulkBuysController extends BaseController
      *
      * Please remember the number of adults/children/seniors has to match one of the available bulk set.
      *
-     * @param Models\PostBulkBuyRequestRequest $body Request payload (json)
+     * @param  Models\PostBulkBuyRequestRequest $body Request payload (json)
      * @return mixed response from the API call
      * @throws APIException Thrown if API call fails
      */
@@ -163,7 +166,7 @@ class BulkBuysController extends BaseController
 
         //prepare headers
         $_headers = array (
-            'user-agent'    => 'APIMATIC 2.0',
+            'user-agent'    => \BmgApiV2Lib\Configuration::$userAgent,
             'Accept'        => 'application/json',
             'content-type'  => 'application/json; charset=utf-8',
             'X-Authorization' => Configuration::$xAuthorization
