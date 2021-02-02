@@ -404,6 +404,24 @@ class ProductDetailsData implements JsonSerializable
     public $links;
 
     /**
+     *
+     * @todo     Write general description for this property
+     * @required
+     * @var      string $covid19Measures public property
+     */
+    public $covid19Measures;
+
+     /**
+     *
+     * @todo     Write general description for this property
+     * @required
+     * @var      string $covid19MeasuresTranslated public property
+     */
+    public $covid19MeasuresTranslated;
+
+
+
+    /**
      * Constructor to set initial or default values of member properties
      *
      * @param string          $uuid                     Initialization value for $this->uuid
@@ -454,10 +472,12 @@ class ProductDetailsData implements JsonSerializable
      * @param array           $audioHeadsetLanguages    Initialization value for $this->audioHeadsetLanguages
      * @param array           $writtenLanguages         Initialization value for $this->writtenLanguages
      * @param array           $links                    Initialization value for $this->links
+     * @param string          $covid19Measures           Initialization value for $this->covid19Measures
+     * @param string          $covid19MeasuresTranslated Initialization value for $this->covid19MeasuresTranslated
      */
     public function __construct()
     {
-        if (48 == func_num_args()) {
+        if (50 == func_num_args()) {
             $this->uuid                     = func_get_arg(0);
             $this->updatedAt                = func_get_arg(1);
             $this->title                    = func_get_arg(2);
@@ -506,6 +526,8 @@ class ProductDetailsData implements JsonSerializable
             $this->audioHeadsetLanguages    = func_get_arg(45);
             $this->writtenLanguages         = func_get_arg(46);
             $this->links                    = func_get_arg(47);
+            $this->covid19Measures          = func_get_arg(48);
+            $this->covid19MeasuresTranslated= func_get_arg(48);
         }
     }
 
@@ -564,6 +586,8 @@ class ProductDetailsData implements JsonSerializable
         $json['audioHeadsetLanguages']    = $this->audioHeadsetLanguages;
         $json['writtenLanguages']         = $this->writtenLanguages;
         $json['links']                    = $this->links;
+        $json['covid19Measures']          = $this->covid19Measures;
+        $json['covid19MeasuresTranslated']= $this->covid19MeasuresTranslated;
 
         return $json;
     }
